@@ -1,0 +1,9 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+font-family: 'Inquisition';
+src: url("../assets/font/Inquisition-J4mM.ttf") format('truetype');
+}

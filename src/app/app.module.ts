@@ -3,10 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ModificateurComponent } from './modificateur/modificateur.component';
+import { HeaderComponent } from './header/header.component';
+import { BoutonHasardComponent } from './bouton-hasard/bouton-hasard.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ModificateurComponent,
+    HeaderComponent,
+    BoutonHasardComponent
   ],
   imports: [
     BrowserModule,
