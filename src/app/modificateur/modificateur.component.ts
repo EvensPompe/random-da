@@ -13,10 +13,14 @@ export class ModificateurComponent implements OnInit {
   subClassesGuerrier: string[];
   subClassesMage: string[];
   subClassesVoleur: string[];
+  weaponsGuerrier: string[];
+  weaponsMage: string[];
+  weaponsVoleur: string[];
   classRes: string;
   subClassRes: string;
   raceRes: string;
   difficultyRes: string;
+  weaponRes: string;
 
   constructor(private data: HasardServiceService) {
     this.classes = ["Mage", "Voleur", "Guerrier"];
@@ -25,10 +29,14 @@ export class ModificateurComponent implements OnInit {
     this.subClassesVoleur = ["Artificier", "Assassin", "Tempête"];
     this.races = ["Elfe", "Qunari", "Nain", "Humain"];
     this.difficulties = ["Facile", "Normal", "Difficile", "Cauchemar"];
+    this.weaponsGuerrier = ["Arme à deux mains","Arme et Bouclier"];
+    this.weaponsMage = ["Hiver","Brasier","Esprit","Tempête"];
+    this.weaponsVoleur = ["Dague Double","Arme à distance"];
     this.classRes;
     this.subClassRes;
     this.raceRes;
     this.difficultyRes;
+    this.weaponRes;
   }
 
   private getSubClass(classRes: string) {
@@ -61,13 +69,36 @@ export class ModificateurComponent implements OnInit {
     this.difficultyRes = this.difficulties[diffValue];
   }
 
-  private getClass(value:number){
+  private getClass(value: number) {
     this.classRes = this.classes[value];
+    this.getWeapon(this.classRes);
     return this.classRes;
   }
 
-  ngOnInit() {
-  }
+  private getWeapon(classSelected:string){
+    let weaponsValue:number = 0;
+    switch (classSelected) {
+      case "Mage":
+       weaponsValue = Math.floor(Math.random() * Math.floor(4));
+        this.weaponRes = this.weaponsMage[weaponsValue];
+        break;
+
+      case "Voleur":
+       weaponsValue = Math.floor(Math.random() * Math.floor(2));
+        this.weaponRes = this.weaponsVoleur[weaponsValue];
+        break;
+
+      case "Guerrier":
+       weaponsValue = Math.floor(Math.random() * Math.floor(2));
+        this.weaponRes = this.weaponsGuerrier[weaponsValue];
+        break;
+
+      default:
+        break;
+    }
+}
+  // ngOnInit() {
+  // };
 
   ngDoCheck() {
     if (this.data.getValue() || this.data.getValue() === 0) {
@@ -76,6 +107,6 @@ export class ModificateurComponent implements OnInit {
       this.getRaces();
       this.getDiff();
     }
-  }
+  };
 
 }

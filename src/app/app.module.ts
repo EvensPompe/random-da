@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { ModificateurComponent } from './modificateur/modificateur.component';
 import { HeaderComponent } from './header/header.component';
 import { BoutonHasardComponent } from './bouton-hasard/bouton-hasard.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ModificateurComponent,
     HeaderComponent,
-    BoutonHasardComponent
+    BoutonHasardComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
